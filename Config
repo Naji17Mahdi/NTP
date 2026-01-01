@@ -1,0 +1,18 @@
+ON ROUTER:
+Router>enable 
+Router#configure 
+Router(config)#clock timezone IRST 3 30
+Router#clock set 16:35:10 1 jan 2026
+Router#show clock 
+20:5:13.932 IRST Thu Jan 1 2026
+Router#clock set 13:07:10 1 jan 2026
+Router#show clock 
+16:37:13.983 IRST Thu Jan 1 2026
+Router#configure 
+Router(config)#ntp master 2
+Router(config)#ntp server 194.225.150.25
+
+ON SWITCH:
+Switch>enable 
+Switch#configure 
+Switch(config)#ntp server 192.168.10.1
